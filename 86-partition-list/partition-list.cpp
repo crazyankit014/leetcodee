@@ -13,27 +13,28 @@ public:
     
     ListNode* partition(ListNode* head, int x) {
         
-        ListNode* small = new ListNode(-1);
-        ListNode* large = new ListNode(-1);
-        ListNode* small_head = small;
-        ListNode* large_head = large;
-        
-        while (head){
-            if (head->val < x){
-                small->next = head;
-                small = small -> next;
-                head = head -> next;
-                small->next = NULL;
-            }
-            else{
-                large->next = head;
-                large = large -> next;
-                head = head -> next;
-                large -> next = NULL;
-            }
-        }
-        small -> next = large_head -> next;
+        ListNode* small = new ListNode(0);
+        ListNode* large = new ListNode(0);
+       ListNode* SmallP= small;
+       ListNode* LargeP= large;
 
-        return small_head -> next;
+       while(head != NULL)
+       {
+           if(head->val <x)
+           {
+               SmallP->next=head;
+               SmallP=SmallP->next;
+           }
+           else 
+           {
+               LargeP->next=head;
+               LargeP=LargeP->next;
+           }
+           head=head->next;
+       }
+
+       SmallP->next=large->next;
+       LargeP->next= NULL;
+       return small->next;
     }
 };
