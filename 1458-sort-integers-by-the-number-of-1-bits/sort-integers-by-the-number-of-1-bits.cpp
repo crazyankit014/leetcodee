@@ -1,9 +1,9 @@
 class Solution {
 public:
+    vector<int> sortByBits(vector<int>& arr) {
 
- static  bool comp(int a ,int b)
-  {
-      int x1=__builtin_popcount(a);
+        auto lemda=[&](int &a,int &b){
+            int x1=__builtin_popcount(a);
       int x2=__builtin_popcount(b);
       if(x1!=x2)
       {
@@ -13,9 +13,8 @@ public:
       {
           return a<b;
       }
-  }
-    vector<int> sortByBits(vector<int>& arr) {
-        sort(arr.begin(),arr.end(),comp);
+    };
+        sort(arr.begin(),arr.end(),lemda);
         return arr;
     }
 };
