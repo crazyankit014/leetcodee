@@ -14,25 +14,20 @@ public:
         // }
         // return result;
 
-    int n = nums.size();
-    std::vector<int> result(n, 0);  // Initialize result vector with zeros
+    int n=nums.size();
+    vector<int> result(n);
+    int sum = accumulate(nums.begin(),nums.end(),0);
+    int prefixsum=0;
+    for(int i=0;i<n;i++)
+    {
+        int leftsum=prefixsum;
+        int rightsum=sum-prefixsum-nums[i];
 
-    // Calculate the prefix sum of absolute differences from the left
-    int leftSum = 0;
-    for (int i = 0; i < n; i++) {
-        result[i] += i * nums[i] - leftSum;
-        leftSum += nums[i];
+        result[i]= (nums[i]*i) - leftsum+ rightsum - (nums[i]*(n-i-1));
+
+        prefixsum += nums[i];
     }
-
-    // Calculate the suffix sum of absolute differences from the right
-    int rightSum = 0;
-    for (int i = n - 1; i >= 0; i--) {
-        result[i] += rightSum - (n - 1 - i) * nums[i];
-        rightSum += nums[i];
-    }
-
-    return result;
-
+   return result;
     }
 };
 
