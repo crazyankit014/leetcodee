@@ -9,12 +9,19 @@ public:
         //         count++;
         //     }
         // }
-        while(n>0)
-        {
-             n=n & (n-1);
-                count++;
+
+        // 2nd approach 
+        // while(n>0)
+        // {
+        //      n=n & (n-1); // make zero right  most 1
+        //         count++;
             
-        }
-        return count;
+        // }
+        // return count;
+
+
+        // 3rd approach 
+
+        return __builtin_popcount(n);
     }
 };
