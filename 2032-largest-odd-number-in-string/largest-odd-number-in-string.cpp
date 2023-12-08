@@ -6,7 +6,7 @@ public:
         {
             if((num[i]-'0') %2 != 0)   // convert char to integer 
             {
-                return num.substr(0,i+1);
+                return num.substr(0,i+1);   // return length of running string 
             }
         }
 
