@@ -7,13 +7,10 @@ public:
         {
             mpp[arr[i]]++;
         }
-
         for(auto x : mpp)
         {
             if(x.second>n/4)
-            {
                 return x.first;
-            }
         }
         return -1;
     }
