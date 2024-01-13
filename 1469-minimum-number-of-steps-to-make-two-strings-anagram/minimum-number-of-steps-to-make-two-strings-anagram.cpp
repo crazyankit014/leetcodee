@@ -23,13 +23,13 @@ public:
     }
 
     unordered_map<char, int> charCount;
-    for (char ch : s) {
-        charCount[ch]++;
+    for (int i=0;i<s.length();i++) {
+        charCount[s[i]]++;
     }
     int steps = 0;
-    for (char ch : t) {
-        if (charCount.find(ch) != charCount.end() && charCount[ch] > 0) {
-            charCount[ch]--;
+    for (auto i : t) {
+        if (charCount.find(i) != charCount.end() && charCount[i] > 0) {
+            charCount[i]--;
         } else {
             steps++;
         }
