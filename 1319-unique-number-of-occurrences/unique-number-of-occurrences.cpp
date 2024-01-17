@@ -7,11 +7,14 @@ public:
         {
             mpp[arr[i]]++;
         }
-    unordered_set<int> uniqueCounts;
-    for (auto pair : mpp) {
-        if (!uniqueCounts.insert(pair.second).second) {
+    unordered_set<int> st;
+    for (auto x : mpp) {
+        int freq=x.second;
+        if (st.find(freq) != st.end()) {
             return false;
         }
+            st.insert(freq);
+        
     }
     return true;
     }
